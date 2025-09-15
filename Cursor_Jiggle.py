@@ -13,13 +13,13 @@ except Exception as e:
 # Main loop to move mouse in a square pattern
 while True:
     try:
-        m.move(-5, 0, 0)  # Move left
+        m.move(-30, 0, 0)  # Move left
         sleep(0.25)
-        m.move(5, 0, 0)   # Move right
+        m.move(30, 0, 0)   # Move right
         sleep(0.25)
-        m.move(0, -5, 0)  # Move up
+        m.move(0, -30, 0)  # Move up
         sleep(0.25)
-        m.move(0, 5, 0)   # Move down
+        m.move(0, 30, 0)   # Move down
         sleep(0.25)
     except Exception as e:
         print("Error during mouse movement:", e)
