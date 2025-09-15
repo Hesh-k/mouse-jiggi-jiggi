@@ -1,5 +1,8 @@
 # Mouse Jiggi Jiggi
 
+![](https://github.com/Hesh-k/mouse-jiggi-jiggi/blob/main/Assets/Cursor_movements.gif)
+
+
 **Mouse Jiggi Jiggi** is a fun CircuitPython project for the Raspberry Pi Pico (RP2040) that turns your microcontroller into a USB HID mouse. The program moves the mouse cursor in a small square pattern continuously and performs random left-clicks every 3 to 10 seconds, keeping your computer active (e.g., to prevent screen lock or simulate activity). This project is perfect for learning about USB HID, CircuitPython, and the RP2040's capabilities.
 
 ## Features
