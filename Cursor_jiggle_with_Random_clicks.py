@@ -22,11 +22,11 @@ while True:
         m.move(-30, 0, 0)  # Move left
         sleep(0.25)
         m.move(30, 0, 0)   # Move right
-        sleep(0.25)
+        sleep(1)
         m.move(0, -30, 0)  # Move up
-        sleep(0.25)
+        sleep(2.34)
         m.move(0, 30, 0)   # Move down
-        sleep(0.25)
+        sleep(4.5)
 
         # Check if it's time to perform a random left click
         current_time = monotonic()
