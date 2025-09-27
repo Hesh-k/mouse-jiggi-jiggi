@@ -150,7 +150,7 @@ By default, the Waveshare YD-RP2040 appears as "VCC-GND Studio YD RP2040" in Dev
    - Make sure to Clear USB cache: **Windows (Device Manager > Uninstall device)**, **Linux (`sudo modprobe -r usbhid`)**, **macOS (reboot)**.
   
 
-![](https://github.com/Hesh-k/mouse-jiggi-jiggi/blob/main/Assets/)
+![](https://github.com/Hesh-k/mouse-jiggi-jiggi/blob/main/Assets/Custom%20_Device_Name.png)
 
   
   
