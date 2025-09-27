@@ -9,6 +9,7 @@
 - Moves the mouse cursor in a square pattern (left, right, up, down) every second.
 - Simulates random left-clicks at intervals between 3 and 10 seconds.
 - Built with CircuitPython and the Adafruit HID library for easy USB mouse emulation.
+- Shows up as a real mouse in thr device manager.
 - Runs on the affordable Raspberry Pi Pico (RP2040) microcontroller.
 
 ## Hardware Requirements
@@ -168,7 +169,7 @@ By default, the Waveshare YD-RP2040 appears as "VCC-GND Studio YD RP2040" in Dev
 - Check Thonny’s REPL for “Left click performed” messages to confirm click timing.
 
 ### Contributing
-Feel free to fork this repository, make improvements, or add features (e.g., different movement patterns, right-clicks, or adjustable timing). Submit pull requests or open issues for suggestions and bug reports.
+Feel free to fork this repository & make improvements ♡
 
 ### License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
