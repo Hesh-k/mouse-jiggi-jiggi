@@ -108,6 +108,59 @@
 - Random left-clicks are triggered every 3 to 10 seconds using `random.uniform()` and `monotonic()` for timing.
 - Error handling ensures the script continues running even if USB HID issues occur.
 
+
+### Customizing the USB Device Name and Safe Reprogramming
+
+By default, the Waveshare YD-RP2040 appears as "VCC-GND Studio YD RP2040" in Device Manager or `lsusb`. To make it look like a generic mouse (e.g., "USB Optical Mouse") and ensure you can reprogram the board without getting locked out, follow these steps.
+
+#### Step 1: Set the USB Device Name
+1. **Edit `boot.py`**:
+   - Create or edit `boot.py` on the `CIRCUITPY` drive to set the USB device name and optionally hide interfaces for a "pure mouse" setup.
+   - Use this code for a basic setup (as currently implemented):
+
+     ```python
+     import usb_cdc
+     import usb_hid
+     import storage
+     import supervisor
+
+     print("Running boot.py")  # Debug output to confirm boot.py is executing
+
+     # Set USB identification to mimic a generic mouse
+     try:
+         supervisor.set_usb_identification(
+             vid=0x046D,  # Logitech VID (common for mice)
+             pid=0xC077,  # Logitech mouse PID
+             manufacturer="Logitech",
+             product="USB Optical Mouse"
+         )
+         print("USB identification set to USB Optical Mouse")  # Confirm success
+     except Exception as e:
+         print("Error setting USB identification:", e)
+
+     # Optional: Enable only HID mouse (uncomment to hide CIRCUITPY and REPL)
+     storage.disable_usb_drive()  # Hides CIRCUITPY drive
+     # usb_cdc.disable()  # Hides serial console
+     # usb_hid.enable(devices=[usb_hid.Device.MOUSE])
+     # usb_hid.set_interface_name(usb_hid.Device.MOUSE, "HID Mouse")
+
+   - Save `boot.py` to the CIRCUITPY drive using Thonny **File > Save as > CircuitPython device**.
+   - Reboot the Pico by unplugging/replugging the USB cable or pressing `Ctrl-D` in Thonny’s REPL.
+   - Check Device Manager (Windows), System Information (macOS), or `lsusb` (Linux) to confirm the device appears as **"Logitech Inc. Mouse"**.
+   - Make sure to Clear USB cache: **Windows (Device Manager > Uninstall device)**, **Linux (`sudo modprobe -r usbhid`)**, **macOS (reboot)**.
+  
+
+![](https://github.com/Hesh-k/mouse-jiggi-jiggi/blob/main/Assets/)
+
+  
+  
+### Notes
+- The current code hides the **CIRCUITPY** drive (`storage.disable_usb_drive()`) but keeps the REPL enabled for debugging via Thonny.
+- To hide both **CIRCUITPY** and **REPL** for a true "pure mouse" experience, uncomment the lines for `usb_cdc.disable()`, `usb_hid.enable()`, and `usb_hid.set_interface_name()`.
+- **Warning**: Hiding both interfaces prevents easy reprogramming unless you reset the board.
+- Use `flash_nuke.uf2` to reset RP2040 board if you can't access to it for re programming.
+
+
 ### Testing
 - Connect the Pico to a computer via USB.
 - Observe the mouse cursor moving in a square pattern.
