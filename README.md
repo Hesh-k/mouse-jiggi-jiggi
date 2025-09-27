@@ -141,9 +141,9 @@ By default, the Waveshare YD-RP2040 appears as "VCC-GND Studio YD RP2040" in Dev
 
      # Optional: Enable only HID mouse (uncomment to hide CIRCUITPY and REPL)
      storage.disable_usb_drive()  # Hides CIRCUITPY drive
-     # usb_cdc.disable()  # Hides serial console
-     # usb_hid.enable(devices=[usb_hid.Device.MOUSE])
-     # usb_hid.set_interface_name(usb_hid.Device.MOUSE, "HID Mouse")
+       usb_cdc.disable()  # Hides serial console
+       usb_hid.enable(devices=[usb_hid.Device.MOUSE])
+       usb_hid.set_interface_name(usb_hid.Device.MOUSE, "HID Mouse")
 
    - Save `boot.py` to the CIRCUITPY drive using Thonny **File > Save as > CircuitPython device**.
    - Reboot the Pico by unplugging/replugging the USB cable or pressing `Ctrl-D` in Thonny’s REPL.
